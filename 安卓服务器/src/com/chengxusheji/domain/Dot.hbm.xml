@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.chengxusheji.domain">
+
+	<class name="Dot" table="Dot">
+
+          <!-- 主键网点id -->
+          <id name="dotId" column="dotId">
+            <generator class="native"/>
+          </id>
+
+          <!-- 多对一属性: 航空公司 -->
+          <many-to-one name="companyObj"
+            column="companyObj"
+            class="Company"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 简单字符串属性: 网点名称 -->
+          <property
+            name="title"
+            column="title"
+            type="string"
+            length="60"
+          />
+
+          <!-- 多对一属性: 城市 -->
+          <many-to-one name="cityObj"
+            column="cityObj"
+            class="City"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 简单字符串属性: 电话 -->
+          <property
+            name="telephone"
+            column="telephone"
+            type="string"
+            length="20"
+          />
+
+          <!-- 简单字符串属性: 传真 -->
+          <property
+            name="fax"
+            column="fax"
+            type="string"
+            length="20"
+          />
+
+          <!-- 简单字符串属性: 地址 -->
+          <property
+            name="address"
+            column="address"
+            type="string"
+            length="90"
+          />
+
+
+		 
+		
+	</class>
+	
+</hibernate-mapping>
+ 

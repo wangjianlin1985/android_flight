@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.chengxusheji.domain">
+
+	<class name="Flight" table="Flight">
+
+          <!-- 主键记录id -->
+          <id name="flightId" column="flightId">
+            <generator class="native"/>
+          </id>
+
+          <!-- 简单字符串属性: 航班号 -->
+          <property
+            name="flightNo"
+            column="flightNo"
+            type="string"
+            length="20"
+          />
+
+          <!-- 多对一属性: 航空公司 -->
+          <many-to-one name="comparyObj"
+            column="comparyObj"
+            class="Company"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 多对一属性: 出发城市 -->
+          <many-to-one name="startCity"
+            column="startCity"
+            class="City"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 多对一属性: 到达城市 -->
+          <many-to-one name="arriveCity"
+            column="arriveCity"
+            class="City"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 简单日期型属性: 航班日期 -->
+          <property
+            name="flightDate"
+            column="flightDate"
+            	type="timestamp"
+            	length="10"
+          />
+
+          <!-- 简单字符串属性: 起飞时间 -->
+          <property
+            name="flyTime"
+            column="flyTime"
+            type="string"
+            length="20"
+          />
+
+          <!-- 简单字符串属性: 候机楼 -->
+          <property
+            name="waitFloor"
+            column="waitFloor"
+            type="string"
+            length="20"
+          />
+
+          <!-- 简单字符串属性: 接机楼 -->
+          <property
+            name="meetFloor"
+            column="meetFloor"
+            type="string"
+            length="20"
+          />
+
+
+		 
+		
+	</class>
+	
+</hibernate-mapping>
+ 

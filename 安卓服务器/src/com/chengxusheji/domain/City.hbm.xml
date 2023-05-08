@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.chengxusheji.domain">
+
+	<class name="City" table="City">
+
+          <!-- 主键城市编号 -->
+          <id name="cityNo" type="string" length="20">
+            <generator class="assigned"/>
+          </id>
+
+          <!-- 简单字符串属性: 城市名称 -->
+          <property
+            name="cityName"
+            column="cityName"
+            type="string"
+            length="20"
+          />
+
+
+		 
+		
+	</class>
+	
+</hibernate-mapping>
+ 
